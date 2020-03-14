@@ -3,7 +3,7 @@ package com.example.demo.model;
 import javax.validation.constraints.NotNull;
 
 public class TestModel {
-	@NotNull(message = "name required")
+@NotNull(message = "name required")
  private String name;
  private int value;
 public String getName() {
