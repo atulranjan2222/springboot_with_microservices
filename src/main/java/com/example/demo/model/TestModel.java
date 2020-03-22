@@ -6,6 +6,17 @@ public class TestModel {
 @NotNull(message = "name required")
  private String name;
  private int value;
+ 
+ public TestModel() {
+	 
+ }
+ 
+ 
+public TestModel(@NotNull(message = "name required") String name, int value) {
+	super();
+	this.name = name;
+	this.value = value;
+}
 public String getName() {
 	return name;
 }
