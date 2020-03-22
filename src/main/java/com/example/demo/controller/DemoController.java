@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,10 +16,13 @@ import com.example.demo.model.TestModel;
 @RequestMapping("/demo")
 public class DemoController {
 
+
 	@PostMapping("/test")
 	public ResponseEntity<TestModel> testController( @ RequestBody @Valid TestModel model) {
 		System.out.println("in controller");
 		ResponseEntity<TestModel> response = null;
+		System.err.println("kkk");
+		
 		if (model != null) {
 			System.out.println(">>>"+model.toString());
 			response = new ResponseEntity<TestModel>(model, HttpStatus.OK);
