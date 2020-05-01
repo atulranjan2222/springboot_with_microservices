@@ -2,32 +2,44 @@ package com.example.demo.model;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 
 import com.example.demo.util.DataValidation;
 
 public class CustomerModel {
+	@NotEmpty(message = "customerCode Required")
 	private String customerCode;
-	private String customerName;
-	@Pattern(regexp = DataValidation.PHONE_CHECK,message = "customerPhone is invalid")
-	private String customerPhone;
-	@Email(message = "customerEmail is invalid")
-	private String customerEmail;
+	@NotEmpty(message = "firstName Required")
+	private String firstName;
+	private String middleName;
+	@NotEmpty(message = "lastName Required")
+	private String lastName;
+	private String gender;
+	@NotEmpty(message = "email Required")
+	@Email(message = "please enter valid email")
+	private String email;
+	@NotEmpty(message = "mobile Required")
+	@Pattern(regexp = DataValidation.PHONE_CHECK)
+	private String mobile;
 	@Valid
-	private CustomerAddressModel address;
-
-	public CustomerModel(String customerCode, String customerName, String customerPhone, String customerEmail,
-			CustomerAddressModel address) {
-		super();
-		this.customerCode = customerCode;
-		this.customerName = customerName;
-		this.customerPhone = customerPhone;
-		this.customerEmail = customerEmail;
-		this.address = address;
-	}
+	private CustomerAddressModel  address;
 
 	public CustomerModel() {
 
+	}
+
+	public CustomerModel(String customerCode, String firstName, String middleName, String lastName, String gender,
+			String email, String mobile, CustomerAddressModel address) {
+		super();
+		this.customerCode = customerCode;
+		this.firstName = firstName;
+		this.middleName = middleName;
+		this.lastName = lastName;
+		this.gender = gender;
+		this.email = email;
+		this.mobile = mobile;
+		this.address = address;
 	}
 
 	public String getCustomerCode() {
@@ -38,28 +50,52 @@ public class CustomerModel {
 		this.customerCode = customerCode;
 	}
 
-	public String getCustomerName() {
-		return customerName;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setCustomerName(String customerName) {
-		this.customerName = customerName;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public String getCustomerPhone() {
-		return customerPhone;
+	public String getMiddleName() {
+		return middleName;
 	}
 
-	public void setCustomerPhone(String customerPhone) {
-		this.customerPhone = customerPhone;
+	public void setMiddleName(String middleName) {
+		this.middleName = middleName;
 	}
 
-	public String getCustomerEmail() {
-		return customerEmail;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setCustomerEmail(String customerEmail) {
-		this.customerEmail = customerEmail;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
 	}
 
 	public CustomerAddressModel getAddress() {
@@ -72,8 +108,9 @@ public class CustomerModel {
 
 	@Override
 	public String toString() {
-		return "CustomerModel [customerCode=" + customerCode + ", customerName=" + customerName + ", customerPhone="
-				+ customerPhone + ", customerEmail=" + customerEmail + ", address=" + address + "]";
+		return "CustomerModel [customerCode=" + customerCode + ", firstName=" + firstName + ", middleName=" + middleName
+				+ ", lastName=" + lastName + ", gender=" + gender + ", email=" + email + ", mobile=" + mobile
+				+ ", address=" + address + "]";
 	}
 
 }

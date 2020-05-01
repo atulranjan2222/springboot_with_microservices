@@ -6,22 +6,25 @@ import com.example.demo.util.DataValidation;
 
 public class CustomerAddressModel {
 	private String addressLine1;
+	private String addressLine2;
 	private String city;
 	private String state;
 	private String country;
-	@Pattern(regexp = DataValidation.ZIP_CHECK,message = "zip is incorrect")
-	private String zip;
-
-	public CustomerAddressModel(String addressLine1, String city, String state, String country, String zip) {
-		this.addressLine1 = addressLine1;
-		this.city = city;
-		this.state = state;
-		this.country = country;
-		this.zip = zip;
-	}
+	@Pattern(regexp = DataValidation.ZIP_CHECK)
+	private String zipCode;
 
 	public CustomerAddressModel() {
 
+	}
+
+	public CustomerAddressModel(String addressLine1, String addressLine2, String city, String state, String country,
+			String zipCode) {
+		this.addressLine1 = addressLine1;
+		this.addressLine2 = addressLine2;
+		this.city = city;
+		this.state = state;
+		this.country = country;
+		this.zipCode = zipCode;
 	}
 
 	public String getAddressLine1() {
@@ -30,6 +33,14 @@ public class CustomerAddressModel {
 
 	public void setAddressLine1(String addressLine1) {
 		this.addressLine1 = addressLine1;
+	}
+
+	public String getAddressLine2() {
+		return addressLine2;
+	}
+
+	public void setAddressLine2(String addressLine2) {
+		this.addressLine2 = addressLine2;
 	}
 
 	public String getCity() {
@@ -56,18 +67,18 @@ public class CustomerAddressModel {
 		this.country = country;
 	}
 
-	public String getZip() {
-		return zip;
+	public String getZipCode() {
+		return zipCode;
 	}
 
-	public void setZip(String zip) {
-		this.zip = zip;
+	public void setZipCode(String zipCode) {
+		this.zipCode = zipCode;
 	}
 
 	@Override
 	public String toString() {
-		return "CustomerAddress [addressLine1=" + addressLine1 + ", city=" + city + ", state=" + state + ", country="
-				+ country + ", zip=" + zip + "]";
+		return "CustomerAddressModel [addressLine1=" + addressLine1 + ", addressLine2=" + addressLine2 + ", city="
+				+ city + ", state=" + state + ", country=" + country + ", zipCode=" + zipCode + "]";
 	}
 
 }

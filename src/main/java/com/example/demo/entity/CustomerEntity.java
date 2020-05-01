@@ -2,37 +2,56 @@ package com.example.demo.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
+
+
+@Entity
+@Table(name = "customer")
 public class CustomerEntity implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -656973805794852631L;
-
+	@Id
 	private String customerCode;
-	private String customerName;
-	private String customerPhone;
-	private String customerEmail;
+	private String firstName;
+	private String middleName;
+	private String lastName;
+	private String gender;
+	private String email;
+	private String mobile;
 	private String addressLine1;
+	private String addressLine2;
 	private String city;
 	private String state;
 	private String country;
-	private String zip;
+	private String zipCode;
 
-	public CustomerEntity(String customerCode, String customerName, String customerPhone, String customerEmail,
-			String addressLine1, String city, String state, String country, String zip) {
+	public CustomerEntity() {
+	}
+
+	public CustomerEntity(String customerCode, String firstName, String middleName, String lastName, String gender,
+			String email, String mobile, String addressLine1, String addressLine2, String city, String state,
+			String country, String zipCode) {
+		super();
 		this.customerCode = customerCode;
-		this.customerName = customerName;
-		this.customerPhone = customerPhone;
-		this.customerEmail = customerEmail;
+		this.firstName = firstName;
+		this.middleName = middleName;
+		this.lastName = lastName;
+		this.gender = gender;
+		this.email = email;
+		this.mobile = mobile;
 		this.addressLine1 = addressLine1;
+		this.addressLine2 = addressLine2;
 		this.city = city;
 		this.state = state;
 		this.country = country;
-		this.zip = zip;
-	}
-
-	public CustomerEntity() {
+		this.zipCode = zipCode;
 	}
 
 	public String getCustomerCode() {
@@ -43,28 +62,52 @@ public class CustomerEntity implements Serializable {
 		this.customerCode = customerCode;
 	}
 
-	public String getCustomerName() {
-		return customerName;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setCustomerName(String customerName) {
-		this.customerName = customerName;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public String getCustomerPhone() {
-		return customerPhone;
+	public String getMiddleName() {
+		return middleName;
 	}
 
-	public void setCustomerPhone(String customerPhone) {
-		this.customerPhone = customerPhone;
+	public void setMiddleName(String middleName) {
+		this.middleName = middleName;
 	}
 
-	public String getCustomerEmail() {
-		return customerEmail;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setCustomerEmail(String customerEmail) {
-		this.customerEmail = customerEmail;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
 	}
 
 	public String getAddressLine1() {
@@ -73,6 +116,14 @@ public class CustomerEntity implements Serializable {
 
 	public void setAddressLine1(String addressLine1) {
 		this.addressLine1 = addressLine1;
+	}
+
+	public String getAddressLine2() {
+		return addressLine2;
+	}
+
+	public void setAddressLine2(String addressLine2) {
+		this.addressLine2 = addressLine2;
 	}
 
 	public String getCity() {
@@ -99,19 +150,24 @@ public class CustomerEntity implements Serializable {
 		this.country = country;
 	}
 
-	public String getZip() {
-		return zip;
+	public String getZipCode() {
+		return zipCode;
 	}
 
-	public void setZip(String zip) {
-		this.zip = zip;
+	public void setZipCode(String zipCode) {
+		this.zipCode = zipCode;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	@Override
 	public String toString() {
-		return "CustomerEntity [customerCode=" + customerCode + ", customerName=" + customerName + ", customerPhone="
-				+ customerPhone + ", customerEmail=" + customerEmail + ", addressLine1=" + addressLine1 + ", city="
-				+ city + ", state=" + state + ", country=" + country + ", zip=" + zip + "]";
+		return "CustomerEntity [customerCode=" + customerCode + ", firstName=" + firstName + ", middleName="
+				+ middleName + ", lastName=" + lastName + ", gender=" + gender + ", email=" + email + ", mobile="
+				+ mobile + ", addressLine1=" + addressLine1 + ", addressLine2=" + addressLine2 + ", city=" + city
+				+ ", state=" + state + ", country=" + country + ", zipCode=" + zipCode + "]";
 	}
 
 }
