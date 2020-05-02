@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 
 
@@ -19,17 +20,22 @@ public class CustomerEntity implements Serializable {
 	private static final long serialVersionUID = -656973805794852631L;
 	@Id
 	private String customerCode;
+	@NotNull
 	private String firstName;
 	private String middleName;
+	@NotNull
 	private String lastName;
 	private String gender;
+	@NotNull
 	private String email;
+	@NotNull
 	private String mobile;
 	private String addressLine1;
 	private String addressLine2;
 	private String city;
 	private String state;
 	private String country;
+	@NotNull
 	private String zipCode;
 
 	public CustomerEntity() {
