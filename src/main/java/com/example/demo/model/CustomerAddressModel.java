@@ -10,7 +10,7 @@ public class CustomerAddressModel {
 	private String city;
 	private String state;
 	private String country;
-	@Pattern(regexp = DataValidation.ZIP_CHECK)
+	@Pattern(regexp = DataValidation.ZIP_CHECK,message = "zipCode must be valid")
 	private String zipCode;
 
 	public CustomerAddressModel() {

@@ -30,6 +30,7 @@ public class CustomerServiceImpl implements CustomerService {
 		CustomerEntity entityResponse = null;
 		try {
 			entityRequest = beanMappers.modelToEntity(model);
+			System.out.println("entiry>>>"+entityRequest.toString());
 			entityResponse = customerRepository.save(entityRequest);
 			modelResponse = beanMappers.entityToModel(entityResponse);
 		} catch (Exception e) {
