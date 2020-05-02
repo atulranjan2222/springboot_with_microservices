@@ -7,7 +7,7 @@ import javax.validation.constraints.Pattern;
 
 import com.example.demo.util.DataValidation;
 
-public class CustomerModel {
+public class CustomerModel extends BaseModel {
 	@NotEmpty(message = "customerCode Required")
 	private String customerCode;
 	@NotEmpty(message = "firstName Required")
