@@ -1,6 +1,10 @@
 package com.example.demo.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -20,8 +24,10 @@ import com.example.demo.util.JWTUtils;
 
 @RestController
 @RequestMapping("/demo")
+@RefreshScope
 public class JwtAuthenticationController {
 
+	Logger logger = LoggerFactory.getLogger(DemoController.class);
 	@Autowired
 	private AuthenticationManager authenticationManager;
 
@@ -31,9 +37,13 @@ public class JwtAuthenticationController {
 	@Autowired
 	private JwtUserDetailsService userDetailsService;
 
+	@Value("${spring.message}")
+	String message;
 	@PostMapping(value = "/authenticate")
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtAutherizationRequest authenticationRequest)
 			throws Exception {
+		
+		logger.info("****************** "+message);
 
 		authenticate(authenticationRequest.getUserName(), authenticationRequest.getPassword());
 
