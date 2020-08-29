@@ -37,13 +37,13 @@ public class JwtAuthenticationController {
 	@Autowired
 	private JwtUserDetailsService userDetailsService;
 
-	@Value("${spring.message}")
-	String message;
+	//@Value("${spring.message}")
+	//String message;
 	@PostMapping(value = "/authenticate")
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtAutherizationRequest authenticationRequest)
 			throws Exception {
 		
-		logger.info("****************** "+message);
+		//logger.info("****************** "+message);
 
 		authenticate(authenticationRequest.getUserName(), authenticationRequest.getPassword());
 
